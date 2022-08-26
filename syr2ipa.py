@@ -231,6 +231,10 @@ def ModifierMatres(letter, previous_token, t, next_token):
             if previous_token and previous_token.vowel and (previous_token.vowel.name == 'ZQAPPA' or previous_token.vowel.name == 'PTAKHA' or previous_token.vowel.name == 'ZLAMA_KIRYA' or previous_token.vowel.name == 'ZLAMA_YARIKHA'):
                 ipa = ''
                 latin = ''
+        elif next_token and previous_token:
+            if previous_token.base and next_token.base:
+                ipa = ''
+                latin = ''
         else:
             ipa = letter.ipa
             latin = letter.latin
