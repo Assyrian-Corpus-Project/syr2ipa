@@ -1,3 +1,13 @@
+#!/usr/bin/python3
+
+##
+# file SyrParser.js
+# brief This script converts Syriac text (Assyrian phonetics) to latin and IPA strings
+#
+# author Sargis S Yonan (sargis@yonan.org)
+# date 1 March 2021
+##
+
 import sys
 
 class SyrChar:
@@ -207,7 +217,7 @@ def ModifierMatres(letter, previous_token, t, next_token):
             ipa = ''
             latin = ''
         elif previous_token is None:
-            if next_token and next_token.vowel and (next_token.vowel.name == 'KHWASA' or next_token.vowel.name == 'RWAKHA'):
+            if next_token and next_token.modifier and (next_token.modifier.name == 'KHWASA' or next_token.modifer.name == 'RWAKHA'):
                     ipa = ''
                     latin = ''
             else:
@@ -387,6 +397,5 @@ if __name__ == "__main__":
     for word in sys.argv[1:]:
         text += word + ' '
 
-    print(ProcessSyrText(text)[1])
-
-
+    print(f'IPA: {ProcessSyrText(text)[0]}'.format())
+    print(f'latin: {ProcessSyrText(text)[1]}'.format())
