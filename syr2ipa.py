@@ -119,7 +119,7 @@ def SyrCharTokensToIPA(tokens):
         i = ''
         l = ''
         if t.talqana:
-            i, l = t.modifier.Modify(t.base, previous_token, t, next_token)
+            i, l = t.talqana.Modify(t.base, previous_token, t, next_token)
         else:
             if t.modifier:
                 i, l = t.modifier.Modify(t.base, previous_token, t, next_token)
@@ -227,7 +227,7 @@ def ModifierMatres(letter, previous_token, t, next_token):
                 else:    
                     ipa = 'ɑ'
                     latin = 'a'
-        elif next_token is None or next_token.is_punctuation:
+        elif next_token is None or next_token.punctuation:
             if previous_token and previous_token.vowel and (previous_token.vowel.name == 'ZQAPPA' or previous_token.vowel.name == 'PTAKHA' or previous_token.vowel.name == 'ZLAMA_KIRYA' or previous_token.vowel.name == 'ZLAMA_YARIKHA'):
                 ipa = ''
                 latin = ''
