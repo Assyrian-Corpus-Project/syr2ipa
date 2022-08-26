@@ -21,3 +21,4 @@ Long term goals include:
 - Python version (done)
 - C++ version
 - Javascript version (done)
+- Transliteration without vowels
