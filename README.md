@@ -2,23 +2,23 @@
 Assyrian text to IPA/latin transliterator
 
 Examples:
-```
-./syr2ipa.py ܘܟܠܹܐܠܹܗ ܥܲܠ ܣܹܠܵܐ ܕܝܵܡܵܐ. ܘܚܙܹܠܝܼ ܕܐَܣܸܩܠܹܗ ܕܵܒܵܐ ܡ̣ܢ ܝܵܡܵܐ؛
-IPA: wklele ʕal selɑ djɑmɑ wxzeli dsɪqle dɑbɑ mn jɑmɑ;  
-latin: wklehleh ʿal sehla dyama wkhzehlee dsiqleh daba mn yama;  
-```
 
+Latin:
 ```
-/syr2ipa.py ܓܵܘ ܠܸܠܝܼܵܐ ܓܵܘ ܐܝܼܡܵܡܵܐ                            
-IPA: gɑw lɪlɪɑ gɑw imɑmɑ  
-latin: gaw lilia gaw eemama
+./syr2ipa.py -lt 'ܘܟܠܹܐܠܹܗ ܥܲܠ ܣܹܠܵܐ ܕܝܵܡܵܐ. ܘܚܙܹܠܝܼ ܕܐ݇ܣܸܩܠܹܗ ܕܵܒܵܐ ܡ̣ܢ ܝܵܡܵܐ؛' 
+wklehleh ʿal sehla dyama. wkhzehli dsiqleh daba min yama; 
 ```
-
-This repository serves as a hosting site for various implementations of Syriac text to IPA/Latin transliterators in various programming languages.
+IPA:
+```
+./syr2ipa.py -t 'ܘܟܠܹܐܠܹܗ ܥܲܠ ܣܹܠܵܐ ܕܝܵܡܵܐ. ܘܚܙܹܠܝܼ ܕܐ݇ܣܸܩܠܹܗ ܕܵܒܵܐ ܡ̣ܢ ܝܵܡܵܐ؛' 
+wklele ʕal selɑ djɑmɑ. wxzelɪ dsɪqle dɑbɑ mɪn jɑmɑ;
+```
+With a specified Corpus Dictionary, BDOLs can be detected:
+```
+./syr2ipa.py -ld corpus.json -t 'ܘܟܠܹܐܠܹܗ ܥܲܠ ܣܹܠܵܐ ܕܝܵܡܵܐ. ܘܚܙܹܠܝܼ ܕܐ݇ܣܸܩܠܹܗ ܕܵܒܵܐ ܡ̣ܢ ܝܵܡܵܐ؛'
+wklehleh ʿal sehla d'yama. w'khzehlee d'siqleh daba min yama; 
+```
 
 Long term goals include:
 - A tunable consolidated .json character definition scheme that any of the implementations can look at for parsing
-- Python version (done)
-- C++ version
-- Javascript version (done)
-- Transliteration without vowels
+- Transliteration without vowels using the corpus dictionary
